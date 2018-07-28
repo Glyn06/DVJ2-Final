@@ -9,6 +9,11 @@ public class Car : MonoBehaviour {
     [HideInInspector]
     public Vector2 direction;
 
+    private void Start()
+    {
+        Destroy(gameObject, 5);
+    }
+
     private void LateUpdate()
     {
         Move(direction);
