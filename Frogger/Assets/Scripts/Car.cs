@@ -8,10 +8,11 @@ public class Car : MonoBehaviour {
     public float speed = 0.1f;
     [HideInInspector]
     public Vector2 direction;
+    public float dieTime = 5;
 
     private void Start()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, dieTime);
     }
 
     private void LateUpdate()

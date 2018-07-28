@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114809005211623214}
   m_Layer: 0
   m_Name: Frog
-  m_TagString: Untagged
+  m_TagString: m_frog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

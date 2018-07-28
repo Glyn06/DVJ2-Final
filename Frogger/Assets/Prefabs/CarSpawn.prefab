@@ -52,3 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 1178095424112284, guid: 3839641c2dfa4af46a5e4433cec903b0, type: 2}
+  flip: 0
+  minTime: 1
+  maxTime: 2
