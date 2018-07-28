@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212594672262599324}
   - component: {fileID: 50924422876018920}
   - component: {fileID: 61761660573121624}
+  - component: {fileID: 114498315865579116}
   m_Layer: 0
   m_Name: Car
   m_TagString: m_car
@@ -87,6 +88,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.23746213, y: 0.24085937}
   m_EdgeRadius: 0
+--- !u!114 &114498315865579116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1178095424112284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d6d05821baaa744b056c18f1359cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 50924422876018920}
+  speed: 0.03
+  direction: {x: 1, y: 0}
 --- !u!212 &212594672262599324
 SpriteRenderer:
   m_ObjectHideFlags: 1
