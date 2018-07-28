@@ -5,21 +5,33 @@ using UnityEngine;
 public class Frog : MonoBehaviour {
 
     public Rigidbody2D rb;
-    public float movementQuantity;
+    public float movementQuantity = 0.3f;
+    public int lives = 3;
 
     Vector3 wrld;
     float half_sz;
+    Vector2 startingPos;
 
     private void Start()
     {
         wrld = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f));
         half_sz = gameObject.GetComponent<Renderer>().bounds.size.x / 2;
+        startingPos = rb.position;
     }
    
 
     void Update () {
+        if (lives <= 0)
+        {
+            Debug.Log("Game Over");
+        }
         Movement();
         Bounds();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Collisions(collision);
     }
 
     void Movement() {
@@ -40,6 +52,13 @@ public class Frog : MonoBehaviour {
         else if (rb.position.x <= (half_sz - wrld.x))
         {
             rb.MovePosition(rb.position + (Vector2.right * movementQuantity));
+        }
+    }
+    void Collisions(Collider2D collision) {
+        if (collision.gameObject.CompareTag("m_car"))
+        {
+            lives--;
+            rb.MovePosition(startingPos);
         }
     }
 }
