@@ -21,6 +21,7 @@ public class Frog : MonoBehaviour {
 
     Vector3 wrld;
     float half_sz;
+    GameObject target;
 
     private void Start()
     {
@@ -35,8 +36,21 @@ public class Frog : MonoBehaviour {
         {
             Debug.Log("Game Over");
         }
-        Movement();
         Bounds();
+    }
+
+    private void LateUpdate()
+    {
+        if (isTouchingLily && isTouchingWater)
+        {
+            transform.position = target.transform.position;
+        }
+        else if (isTouchingWater)
+        {
+            lives--;
+            rb.MovePosition(startingPos);
+        }
+        Movement();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,6 +67,7 @@ public class Frog : MonoBehaviour {
 
         if (collision.CompareTag("m_lily"))
         {
+            target = null;
             isTouchingLily = false;
         }
     }
@@ -80,22 +95,13 @@ public class Frog : MonoBehaviour {
     void Collisions(Collider2D collision) {
         if (collision.CompareTag("m_lily"))
         {
+            target = collision.gameObject;
             isTouchingLily = true;
         }
 
         if (collision.gameObject.CompareTag("m_water"))
         {
             isTouchingWater = true;
-        }
-
-        if (isTouchingLily && isTouchingWater)
-        {
-            //Move with liliy
-        }
-        else if (isTouchingWater && !isTouchingLily)
-        {
-            lives--;
-            rb.MovePosition(startingPos);
         }
 
         if (collision.gameObject.CompareTag("m_car"))
