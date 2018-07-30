@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScreenAdvancement : MonoBehaviour {
 
-    public Camera camera;
+    public new Camera camera;
     public List<GameObject> eraseList;
 
     private void OnTriggerEnter2D(Collider2D collision)

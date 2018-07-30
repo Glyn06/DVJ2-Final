@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4491000893900358}
   - component: {fileID: 114677172721507064}
   m_Layer: 0
-  m_Name: CarSpawn
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e78d71d8e4a88b4fa68d2626e0b4608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1178095424112284, guid: 3839641c2dfa4af46a5e4433cec903b0, type: 2}
+  gameObject: {fileID: 0}
   flip: 0
   minTime: 1
   maxTime: 2

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour {
 
-    public GameObject car;
+    public new GameObject gameObject;
     public bool flip = false;
     public float minTime = 3;
     public float maxTime = 5;
@@ -25,15 +25,15 @@ public class SpawnPoint : MonoBehaviour {
     void Instanciate() {
         if (flip)
         {
-            car.GetComponent<SpriteRenderer>().flipX = true;
-            car.GetComponent<Car>().direction = Vector2.left;
-            Instantiate(car, transform.position, Quaternion.identity);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            gameObject.GetComponent<MovingObject>().direction = Vector2.left;
+            Instantiate(gameObject, transform.position, Quaternion.identity);
         }
         else
         {
-            car.GetComponent<SpriteRenderer>().flipX = false;
-            car.GetComponent<Car>().direction = Vector2.right;
-            Instantiate(car, transform.position, Quaternion.identity);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            gameObject.GetComponent<MovingObject>().direction = Vector2.right;
+            Instantiate(gameObject, transform.position, Quaternion.identity);
         }
     }
     void InstanciateInSeconds() {

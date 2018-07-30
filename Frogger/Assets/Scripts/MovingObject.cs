@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car : MonoBehaviour {
+public class MovingObject : MonoBehaviour {
 
     public Rigidbody2D rb;
     public float speed = 0.1f;

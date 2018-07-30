@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4224261450926996}
   - component: {fileID: 212222824235321016}
   - component: {fileID: 61140967983569128}
+  - component: {fileID: 50050319104295276}
+  - component: {fileID: 114447360192310028}
   m_Layer: 0
   m_Name: PH_lilypad
   m_TagString: m_lily
@@ -41,6 +43,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50050319104295276
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1689297690810480}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61140967983569128
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -66,6 +88,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &114447360192310028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1689297690810480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d6d05821baaa744b056c18f1359cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 50050319104295276}
+  speed: 0.01
+  direction: {x: 1, y: 0}
+  dieTime: 22
 --- !u!212 &212222824235321016
 SpriteRenderer:
   m_ObjectHideFlags: 1
