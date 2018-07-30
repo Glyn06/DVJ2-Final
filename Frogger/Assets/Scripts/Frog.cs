@@ -12,11 +12,12 @@ public class Frog : MonoBehaviour {
     }
     #endregion
 
-    public Rigidbody2D rb;
-    public float movementQuantity = 0.3f;
-    public int lives = 3;
-    [HideInInspector]
-    public Vector2 startingPos;
+                  public Rigidbody2D rb;
+                  public float movementQuantity = 0.3f;
+                  public int lives = 3;
+[HideInInspector] public Vector2 startingPos;
+[HideInInspector] public bool isTouchingWater = false;
+[HideInInspector] public bool isTouchingLily = false;
 
     Vector3 wrld;
     float half_sz;
@@ -43,6 +44,19 @@ public class Frog : MonoBehaviour {
         Collisions(collision);
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("m_water"))
+        {
+            isTouchingWater = false;
+        }
+
+        if (collision.CompareTag("m_lily"))
+        {
+            isTouchingLily = false;
+        }
+    }
+
     void Movement() {
         if (Input.GetKeyDown(KeyCode.UpArrow))
             rb.MovePosition(rb.position + (Vector2.up * movementQuantity));
@@ -64,7 +78,27 @@ public class Frog : MonoBehaviour {
         }
     }
     void Collisions(Collider2D collision) {
-        if (collision.gameObject.CompareTag("m_car") || collision.gameObject.CompareTag("m_water"))
+        if (collision.CompareTag("m_lily"))
+        {
+            isTouchingLily = true;
+        }
+
+        if (collision.gameObject.CompareTag("m_water"))
+        {
+            isTouchingWater = true;
+        }
+
+        if (isTouchingLily && isTouchingWater)
+        {
+            //Move with liliy
+        }
+        else if (isTouchingWater && !isTouchingLily)
+        {
+            lives--;
+            rb.MovePosition(startingPos);
+        }
+
+        if (collision.gameObject.CompareTag("m_car"))
         {
             lives--;
             rb.MovePosition(startingPos);
