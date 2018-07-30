@@ -6,6 +6,7 @@ TagManager:
   tags:
   - m_car
   - m_frog
+  - m_water
   layers:
   - Default
   - TransparentFX

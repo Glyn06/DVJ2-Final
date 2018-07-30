@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Frog : MonoBehaviour {
 
+    #region Singleton
+    public static Frog instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     public Rigidbody2D rb;
     public float movementQuantity = 0.3f;
     public int lives = 3;
+    [HideInInspector]
+    public Vector2 startingPos;
 
     Vector3 wrld;
     float half_sz;
-    Vector2 startingPos;
 
     private void Start()
     {
@@ -55,7 +64,7 @@ public class Frog : MonoBehaviour {
         }
     }
     void Collisions(Collider2D collision) {
-        if (collision.gameObject.CompareTag("m_car"))
+        if (collision.gameObject.CompareTag("m_car") || collision.gameObject.CompareTag("m_water"))
         {
             lives--;
             rb.MovePosition(startingPos);
