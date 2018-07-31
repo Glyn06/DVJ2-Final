@@ -6,6 +6,7 @@ public class ScreenAdvancement : MonoBehaviour {
 
     public new Camera camera;
     public List<GameObject> eraseList;
+    public List<GameObject> activateList;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +19,10 @@ public class ScreenAdvancement : MonoBehaviour {
             for (int i = 0; i < eraseList.Count; i++)
             {
                 Destroy(eraseList[i]);
+            }
+            for (int i = 0; i < activateList.Count; i++)
+            {
+                activateList[i].SetActive(true);
             }
             Destroy(gameObject);
         }

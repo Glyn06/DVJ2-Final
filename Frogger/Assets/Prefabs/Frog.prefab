@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 50987491720197956}
   movementQuantity: 0.3
-  lives: 8000
+  lives: 3
   startingPos: {x: 0, y: 0}
   isTouchingWater: 0
   isTouchingLily: 0
