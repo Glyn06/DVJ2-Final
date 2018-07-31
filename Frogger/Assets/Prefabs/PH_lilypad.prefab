@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4224261450926996}
   - component: {fileID: 212222824235321016}
-  - component: {fileID: 61140967983569128}
   - component: {fileID: 50050319104295276}
   - component: {fileID: 114447360192310028}
+  - component: {fileID: 61320700864349126}
   m_Layer: 0
   m_Name: PH_lilypad
   m_TagString: m_lily
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689297690810480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.64, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.681261, y: 3.9251902, z: 0}
+  m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61140967983569128
+--- !u!61 &61320700864349126
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 50050319104295276}
   speed: 0.01
-  direction: {x: 1, y: 0}
+  direction: {x: -1, y: 0}
   dieTime: 22
 --- !u!212 &212222824235321016
 SpriteRenderer:
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 95d832743e805d245a25dcc611922bdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.32, y: 0.32}

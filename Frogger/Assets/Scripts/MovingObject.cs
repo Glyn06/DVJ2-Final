@@ -15,7 +15,7 @@ public class MovingObject : MonoBehaviour {
         Destroy(gameObject, dieTime);
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         Move(direction);
     }

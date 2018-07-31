@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4515362880700222}
   - component: {fileID: 212072967789913544}
   - component: {fileID: 50987491720197956}
-  - component: {fileID: 58437072351440356}
   - component: {fileID: 114809005211623214}
+  - component: {fileID: 61718402099332886}
   m_Layer: 0
   m_Name: Frog
   m_TagString: m_frog
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58437072351440356
-CircleCollider2D:
+--- !u!61 &61718402099332886
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,12 +72,22 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.22, y: 0.24}
+    newSize: {x: 0.11, y: 0.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.11159307
+  m_Size: {x: 0.22, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!114 &114809005211623214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,8 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 50987491720197956}
   movementQuantity: 0.3
-  lives: 3
+  lives: 8000
   startingPos: {x: 0, y: 0}
+  isTouchingWater: 0
+  isTouchingLily: 0
 --- !u!212 &212072967789913544
 SpriteRenderer:
   m_ObjectHideFlags: 1
