@@ -7,11 +7,13 @@ public class ScreenAdvancement : MonoBehaviour {
     public new Camera camera;
     public List<GameObject> eraseList;
     public List<GameObject> activateList;
+    public int scoreGain = 100;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("m_frog"))
         {
+            GameManager.instance.score += 100;
             Frog frog = Frog.instance;
             Vector2 newPos = frog.transform.position;
             frog.startingPos = newPos;

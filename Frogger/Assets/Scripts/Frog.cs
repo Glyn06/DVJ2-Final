@@ -50,11 +50,13 @@ public class Frog : MonoBehaviour {
         {
             timer += Time.deltaTime;
         }
+
         if (timer >= dieTime)
         {
             Die();
             timer = 0;
         }
+
         Movement();
     }
 
