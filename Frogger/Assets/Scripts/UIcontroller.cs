@@ -9,13 +9,15 @@ public class UIcontroller : MonoBehaviour {
     public Text scoreText;
     public Text timeText;
 
-    public float seconds;
-    public float minutes;
+    float seconds;
+    float minutes;
+    float count = 0;
 
     private void Update()
     {
-        seconds = (int)(Time.unscaledTime % 60f);
-        minutes = (int)(Time.unscaledTime / 60f);
+        count += Time.deltaTime;
+        seconds = (int)(count % 60);
+        minutes = (int)(count / 60);
         timeText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
 
         livesText.text = Frog.instance.lives.ToString("000");

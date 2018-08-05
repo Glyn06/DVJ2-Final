@@ -16,12 +16,14 @@ public class Frog : MonoBehaviour {
                   public float movementQuantity = 0.3f;
                   public int lives = 3;
 [HideInInspector] public Vector2 startingPos;
-public bool isTouchingWater = false;
-public bool isTouchingLily = false;
+[HideInInspector] public GameObject target;
+                  public bool isTouchingWater = false;
+                  public bool isTouchingWaterOBJ = false;
+    public float dieTime = 0.1f;
+    private float timer = 0;
 
     Vector3 wrld;
     float half_sz;
-    GameObject target;
 
     private void Start()
     {
@@ -40,49 +42,49 @@ public bool isTouchingLily = false;
 
     private void LateUpdate()
     {
-        if (isTouchingLily && isTouchingWater)
+        if (target != null)
         {
             transform.position = target.transform.position;
         }
-        else if (!isTouchingLily && isTouchingWater)
+        else if (isTouchingWater && !isTouchingWaterOBJ)
+        {
+            timer += Time.deltaTime;
+        }
+        if (timer >= dieTime)
         {
             Die();
+            timer = 0;
         }
-
         Movement();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("m_lily"))
-        {
-            target = collision.gameObject;
-            isTouchingLily = true;
-        }
-
         if (collision.CompareTag("m_water"))
         {
             isTouchingWater = true;
         }
 
-        if (collision.gameObject.CompareTag("m_car"))
+        if (collision.CompareTag("m_lily"))
         {
-            Die();
+            isTouchingWaterOBJ = true;
+            target = collision.gameObject;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-       if (collision.CompareTag("m_lily"))
-       {
-           target = null;
-           isTouchingLily = false;
-       }
+        isTouchingWater = false;
+        isTouchingWaterOBJ = false;
+        target = null;
+    }
 
-       if (collision.CompareTag("m_water"))
-       {
-           isTouchingWater = false;
-       }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("m_car"))
+        {
+            Die();
+        }
     }
 
     void Movement() {

@@ -103,8 +103,10 @@ MonoBehaviour:
   movementQuantity: 0.3
   lives: 3
   startingPos: {x: 0, y: 0}
+  target: {fileID: 0}
   isTouchingWater: 0
-  isTouchingLily: 0
+  isTouchingWaterOBJ: 0
+  dieTime: 0.2
 --- !u!212 &212072967789913544
 SpriteRenderer:
   m_ObjectHideFlags: 1
