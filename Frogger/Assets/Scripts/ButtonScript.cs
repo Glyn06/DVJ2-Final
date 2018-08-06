@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour {
 
@@ -9,6 +10,9 @@ public class ButtonScript : MonoBehaviour {
 
     public List<GameObject> onPauseShow;
     public List<GameObject> onPauseHide;
+    public Slider slider;
+    public Text nextLevelText;
+    public GameObject panel;
 
     public void M_ChangeScene(string name) {
         Time.timeScale = 1;
@@ -49,8 +53,37 @@ public class ButtonScript : MonoBehaviour {
     }
 
     public void M_NextLevel(string name) {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(name);
-        GameManager.instance.level++;
+
+        panel.SetActive(true);
+
+        if (!GameManager.instance)
+        {
+            nextLevelText.text = "Level 1";
+            StartCoroutine(LoadAsynch(name));
+            Time.timeScale = 1;
+            GameManager.instance.level++;
+            GameManager.instance.ResetTimers();
+        }
+        else
+        {
+            nextLevelText.text = "Level " + GameManager.instance.level.ToString();
+            StartCoroutine(LoadAsynch(name));
+            Time.timeScale = 1;
+            GameManager.instance.level++;
+            GameManager.instance.ResetTimers();
+        }
+    }
+
+    IEnumerator LoadAsynch(string sceneName)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f); //la division por 0.9 es para que vaya de 0 a 1 y no de 0 a 0.9
+            slider.value = progress;
+
+            yield return null;
+        }
     }
 }

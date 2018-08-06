@@ -31,4 +31,10 @@ public class GameManager : MonoBehaviour {
         seconds = (int)(count % 60);
         minutes = (int)(count / 60);
     }
+
+    public void ResetTimers() {
+        seconds = 0;
+        minutes = 0;
+        count = 0;
+    }
 }
