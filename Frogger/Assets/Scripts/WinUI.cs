@@ -14,6 +14,6 @@ public class WinUI : MonoBehaviour {
     {
         GM = GameManager.instance;
         scoreText.text = "Score: " + GM.score.ToString("0000");
-        timeText.text = GM.minutes.ToString("00") + ":" + GM.seconds.ToString("00");
+        timeText.text = "Time: " + GM.minutes.ToString("00") + ":" + GM.seconds.ToString("00");
     }
 }

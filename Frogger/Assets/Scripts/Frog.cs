@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Frog : MonoBehaviour {
 
@@ -17,8 +18,9 @@ public class Frog : MonoBehaviour {
                   public int lives = 3;
 [HideInInspector] public Vector2 startingPos;
 [HideInInspector] public GameObject target;
-                  public bool isTouchingWater = false;
-                  public bool isTouchingWaterOBJ = false;
+[HideInInspector] public bool isTouchingWater = false;
+[HideInInspector] public bool isTouchingWaterOBJ = false;
+[HideInInspector] public bool outOfLives = false;
     public float dieTime = 0.1f;
     private float timer = 0;
 
@@ -35,7 +37,7 @@ public class Frog : MonoBehaviour {
     void Update () {
         if (lives <= 0)
         {
-            Debug.Log("Game Over");
+            SceneManager.LoadScene("LoseScene");
         }
         Bounds();
     }

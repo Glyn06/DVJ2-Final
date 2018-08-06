@@ -15,6 +15,8 @@ public class ButtonScript : MonoBehaviour {
     public GameObject panel;
 
     public void M_ChangeScene(string name) {
+        if (GameManager.instance != null)
+            GameManager.instance.ResetTimers();
         Time.timeScale = 1;
         SceneManager.LoadScene(name);
     }
