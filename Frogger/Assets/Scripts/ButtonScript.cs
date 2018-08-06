@@ -54,31 +54,31 @@ public class ButtonScript : MonoBehaviour {
         }
     }
 
-    public void M_NextLevel(string name) {
+    public void M_NextLevel() {
 
         panel.SetActive(true);
 
         if (!GameManager.instance)
         {
             nextLevelText.text = "Level 1";
-            StartCoroutine(LoadAsynch(name));
+            StartCoroutine(LoadAsynch(GameManager.instance.nextLevel));
             Time.timeScale = 1;
-            GameManager.instance.level++;
+            GameManager.instance.nextLevel++;
             GameManager.instance.ResetTimers();
         }
         else
         {
-            nextLevelText.text = "Level " + GameManager.instance.level.ToString();
-            StartCoroutine(LoadAsynch(name));
+            nextLevelText.text = "Level " + GameManager.instance.nextLevel.ToString();
+            StartCoroutine(LoadAsynch(GameManager.instance.nextLevel));
             Time.timeScale = 1;
-            GameManager.instance.level++;
+            GameManager.instance.nextLevel++;
             GameManager.instance.ResetTimers();
         }
     }
 
-    IEnumerator LoadAsynch(string sceneName)
+    IEnumerator LoadAsynch(int index)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(index);
 
         while (!operation.isDone)
         {

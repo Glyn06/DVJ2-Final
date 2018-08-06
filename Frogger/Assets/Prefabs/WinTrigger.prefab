@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4390388977369036}
   - component: {fileID: 61133509676135200}
+  - component: {fileID: 114543669245687682}
   m_Layer: 0
   m_Name: WinTrigger
   m_TagString: Untagged
@@ -65,3 +66,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.237029, y: 0.2312774}
   m_EdgeRadius: 0
+--- !u!114 &114543669245687682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1038239410870500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a844e182534224a8eacc907b3d7afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     [HideInInspector] public int score = 0;
-    [HideInInspector] public int level = 1;
+    [HideInInspector] public int nextLevel = 2;
     [HideInInspector] public float seconds;
     [HideInInspector] public float minutes;
     [HideInInspector] public float count = 0;
