@@ -13,7 +13,7 @@ public class ScreenAdvancement : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("m_frog"))
         {
-            GameManager.instance.score += 100;
+            GameManager.instance.score += scoreGain;
             Frog frog = Frog.instance;
             Vector2 newPos = frog.transform.position;
             frog.startingPos = newPos;

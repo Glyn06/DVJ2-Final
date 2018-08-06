@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 50050319104295276}
   speed: 0.01
-  direction: {x: 1, y: 0}
+  direction: {x: -1, y: 0}
   dieTime: 22
 --- !u!212 &212222824235321016
 SpriteRenderer:
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 95d832743e805d245a25dcc611922bdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.32, y: 0.32}
