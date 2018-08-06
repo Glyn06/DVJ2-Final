@@ -47,4 +47,10 @@ public class ButtonScript : MonoBehaviour {
             isPaused = true;
         }
     }
+
+    public void M_NextLevel(string name) {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(name);
+        GameManager.instance.level++;
+    }
 }
