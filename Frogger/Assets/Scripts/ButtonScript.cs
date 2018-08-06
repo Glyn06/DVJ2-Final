@@ -61,19 +61,17 @@ public class ButtonScript : MonoBehaviour {
         if (!GameManager.instance)
         {
             nextLevelText.text = "Level 1";
-            StartCoroutine(LoadAsynch(GameManager.instance.nextLevel));
-            Time.timeScale = 1;
-            GameManager.instance.nextLevel++;
-            GameManager.instance.ResetTimers();
+            
         }
         else
         {
             nextLevelText.text = "Level " + GameManager.instance.nextLevel.ToString();
-            StartCoroutine(LoadAsynch(GameManager.instance.nextLevel));
-            Time.timeScale = 1;
-            GameManager.instance.nextLevel++;
-            GameManager.instance.ResetTimers();
+
         }
+        StartCoroutine(LoadAsynch(GameManager.instance.nextLevel));
+        Time.timeScale = 1;
+        GameManager.instance.nextLevel++;
+        GameManager.instance.ResetTimers();
     }
 
     IEnumerator LoadAsynch(int index)
